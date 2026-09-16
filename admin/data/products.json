@@ -1,0 +1,38 @@
+[
+  {
+    "id": "zareya-2044a",
+    "name": "Zaréya 2044A",
+    "slug": "zareya-2044a",
+    "price": 6499,
+    "fabric": "Chikankari Cotton Suit",
+    "description": "Top: cotton with heavy embroidery chikankari work. Bottom: cotton with work. Dupatta: cotton with digital print.",
+    "sizes": ["S", "M", "L", "XL"],
+    "status": "In Stock",
+    "badge": "Bestseller",
+    "image": "/images/product-2044a.jpg"
+  },
+  {
+    "id": "zareya-emerald-aina",
+    "name": "Zaréya Emerald Aina",
+    "slug": "zareya-emerald-aina",
+    "price": 12999,
+    "fabric": "Embellished Net Suit",
+    "description": "Heavily embellished emerald net ensemble with hand-finished detailing.",
+    "sizes": ["S", "M", "L", "XL"],
+    "status": "In Stock",
+    "badge": "Bestseller",
+    "image": "/images/hero.jpg"
+  },
+  {
+    "id": "zareya-noor",
+    "name": "Zaréya Noor",
+    "slug": "zareya-noor",
+    "price": 5299,
+    "fabric": "Digital Print Dupatta Set",
+    "description": "Everyday pret set with a digitally printed dupatta.",
+    "sizes": ["S", "M", "L"],
+    "status": "In Stock",
+    "badge": "New",
+    "image": "/images/product-2044a.jpg"
+  }
+]
