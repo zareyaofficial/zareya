@@ -17,6 +17,8 @@ export type SiteSettings = {
   ctaTitle?: string;
   ctaButtonLabel?: string;
   ctaButtonLink?: string;
+  bestSellerProductIds?: string[];
+  newProductIds?: string[];
 };
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {
