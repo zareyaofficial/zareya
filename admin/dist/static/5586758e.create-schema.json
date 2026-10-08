@@ -1,0 +1,391 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Product Name"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Generated from the Product Name. You can edit it if needed.",
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "price",
+        "type": "number",
+        "title": "Price (₹)"
+      },
+      {
+        "description": "Choose from the Fabric list. Use Custom Fabric below for a one-off value.",
+        "to": [
+          {
+            "type": "fabric"
+          }
+        ],
+        "name": "fabricRef",
+        "type": "reference",
+        "title": "Fabric"
+      },
+      {
+        "description": "Optional. If filled, this is shown instead of the selected Fabric.",
+        "name": "customFabric",
+        "type": "string"
+      },
+      {
+        "hidden": true,
+        "name": "fabric",
+        "type": "string",
+        "title": "Legacy Fabric"
+      },
+      {
+        "rows": 5,
+        "name": "description",
+        "type": "text",
+        "title": "Full Description"
+      },
+      {
+        "description": "Add every size this product is available in (e.g. S, M, L, XL). Click 'Add item' for each one.",
+        "of": [
+          {
+            "options": {
+              "filter": "active == true"
+            },
+            "to": [
+              {
+                "type": "size"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to size"
+          }
+        ],
+        "name": "sizeRefs",
+        "type": "array",
+        "title": "Sizes"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "description": "Optional extra sizes not in the Size list above (e.g. 'Free Size', 'XXL').",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "customSizes",
+        "type": "array"
+      },
+      {
+        "to": [
+          {
+            "type": "size"
+          }
+        ],
+        "hidden": true,
+        "name": "sizeRef",
+        "type": "reference",
+        "title": "Legacy Size"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "hidden": true,
+        "name": "sizes",
+        "type": "array",
+        "title": "Legacy Size Names"
+      },
+      {
+        "options": {
+          "list": [
+            "In Stock",
+            "Made to Order",
+            "Sold Out"
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "In Stock",
+        "name": "status",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            "New",
+            "Bestseller"
+          ]
+        },
+        "description": "Also shows up automatically in Website Banner & Settings for quick management.",
+        "name": "badge",
+        "type": "string"
+      },
+      {
+        "options": {
+          "layout": "grid"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Add multiple photos. The first photo is the primary product image.",
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "type": "image"
+          }
+        ],
+        "name": "images",
+        "type": "array",
+        "title": "Product Photos"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "hidden": true,
+        "name": "image",
+        "type": "image",
+        "title": "Legacy Main Image"
+      }
+    ],
+    "name": "product",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Fabric Name"
+      },
+      {
+        "rows": 3,
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "initialValue": true,
+        "name": "active",
+        "type": "boolean"
+      }
+    ],
+    "name": "fabric",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The size name shown when selecting sizes for a product.",
+        "name": "name",
+        "type": "string",
+        "title": "Size"
+      },
+      {
+        "initialValue": true,
+        "name": "active",
+        "type": "boolean"
+      },
+      {
+        "initialValue": 0,
+        "name": "sortOrder",
+        "type": "number"
+      }
+    ],
+    "name": "size",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Zaréya Website",
+        "name": "title",
+        "type": "string",
+        "title": "Internal Title"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "heroImage",
+        "type": "image",
+        "title": "Homepage Banner Image"
+      },
+      {
+        "initialValue": "PAKISTANI COUTURE & KURTIS",
+        "name": "heroEyebrow",
+        "type": "string",
+        "title": "Banner Eyebrow"
+      },
+      {
+        "initialValue": "The art of Pakistani elegance, made to be worn.",
+        "name": "heroTitle",
+        "type": "string",
+        "title": "Banner Heading"
+      },
+      {
+        "rows": 3,
+        "name": "heroSubtitle",
+        "type": "text",
+        "title": "Banner Description"
+      },
+      {
+        "initialValue": "Shop the Collection",
+        "name": "heroPrimaryLabel",
+        "type": "string",
+        "title": "Primary Button Label"
+      },
+      {
+        "initialValue": "/shop",
+        "name": "heroPrimaryLink",
+        "type": "string",
+        "title": "Primary Button Link"
+      },
+      {
+        "initialValue": "View Best Sellers",
+        "name": "heroSecondaryLabel",
+        "type": "string",
+        "title": "Secondary Button Label"
+      },
+      {
+        "initialValue": "/#bestsellers",
+        "name": "heroSecondaryLink",
+        "type": "string",
+        "title": "Secondary Button Link"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "storyImage",
+        "type": "image",
+        "title": "Our Story — Image"
+      },
+      {
+        "initialValue": "OUR STORY",
+        "name": "storyTag",
+        "type": "string",
+        "title": "Our Story — Small Label"
+      },
+      {
+        "initialValue": "Tradition meets timeless elegance.",
+        "name": "storyTitle",
+        "type": "string",
+        "title": "Our Story — Heading"
+      },
+      {
+        "rows": 4,
+        "initialValue": "Zaréya was born from a simple belief — that Pakistani craftsmanship deserves a home outside the wedding season and the gallery shelf. Every piece we carry is chosen for its handwork, its fabric, and the way it moves.",
+        "name": "storyParagraph1",
+        "type": "text",
+        "title": "Our Story — Paragraph 1"
+      },
+      {
+        "rows": 4,
+        "initialValue": "From heavy chikankari cottons to fine embellished nets, our edit spans everyday pret to occasion couture — sourced from Pakistan's ateliers, styled for wardrobes in India and the UAE.",
+        "name": "storyParagraph2",
+        "type": "text",
+        "title": "Our Story — Paragraph 2"
+      },
+      {
+        "rows": 2,
+        "initialValue": "Found something you love? Add it to your cart and check out in one message on WhatsApp — no forms, no waiting.",
+        "name": "ctaTitle",
+        "type": "text",
+        "title": "Bottom Banner Heading"
+      },
+      {
+        "initialValue": "Start Shopping",
+        "name": "ctaButtonLabel",
+        "type": "string",
+        "title": "Bottom Banner Button"
+      },
+      {
+        "initialValue": "/shop",
+        "name": "ctaButtonLink",
+        "type": "string",
+        "title": "Bottom Banner Link"
+      }
+    ],
+    "name": "siteSettings",
+    "type": "document"
+  }
+]
