@@ -12,6 +12,12 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "itemCode",
+      title: "Item Code",
+      type: "string",
+      description: "Optional. Shown in small text above the product name on the website (e.g. 2044 A).",
+    }),
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
@@ -111,6 +117,6 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { title: "name", subtitle: "customFabric", media: "images.0" },
+    select: { title: "name", subtitle: "itemCode", media: "images.0" },
   },
 });

@@ -14,6 +14,7 @@ export default function ProductCard({ product }: { product: Product }) {
     addToCart({
       id: product.id,
       name: product.name,
+      itemCode: product.itemCode,
       price: product.price,
       size: product.sizes[0] ?? "Free Size",
       qty: 1,
@@ -32,8 +33,14 @@ export default function ProductCard({ product }: { product: Product }) {
         <div>
           <div className="card-name">{product.name}</div>
           <div className="card-sub-row">
-            {product.badge && <span className="badge">{product.badge}</span>}
-            <div className="card-sub">{product.fabric}</div>
+            {product.itemCode && <span className="card-sub">{product.itemCode}</span>}
+            {product.fabric && <span className="card-sub">{product.fabric}</span>}
+            {product.badge && (
+              <>
+                {(product.itemCode || product.fabric) && <span className="card-sub">·</span>}
+                <span className="badge">{product.badge}</span>
+              </>
+            )}
           </div>
         </div>
         <div className="card-price">₹{product.price.toLocaleString("en-IN")}</div>

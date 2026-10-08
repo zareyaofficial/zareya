@@ -27,11 +27,11 @@ export default function CartPage() {
             <div className="cart-row" key={`${item.id}-${item.size}`}>
               <img src={item.image} alt={item.name} />
               <div>
-                <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 17 }}>
+                <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 16, fontWeight: 500 }}>
                   {item.name}
                 </div>
                 <div style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>
-                  Size: {item.size}
+                  {item.itemCode ? `Item Code: ${item.itemCode} · ` : ""}Size: {item.size}
                 </div>
               </div>
               <div className="qty-control">

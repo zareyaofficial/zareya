@@ -40,7 +40,7 @@ export default function CheckoutPage() {
     lines.push("*Items:*");
     items.forEach((item) => {
       lines.push(
-        `• ${item.name} (Size: ${item.size}) x${item.qty} — ₹${(
+        `• ${item.itemCode ? `Item Code: ${item.itemCode} | ` : ""}${item.name} (Size: ${item.size}) x${item.qty} — ₹${(
           item.price * item.qty
         ).toLocaleString("en-IN")}`
       );
@@ -96,7 +96,7 @@ export default function CheckoutPage() {
           {items.map((item) => (
             <div className="checkout-summary-row" key={`${item.id}-${item.size}`}>
               <span>
-                {item.name} ({item.size}) x{item.qty}
+                {item.itemCode ? `${item.itemCode} - ` : ""}{item.name} ({item.size}) x{item.qty}
               </span>
               <span>₹{(item.price * item.qty).toLocaleString("en-IN")}</span>
             </div>

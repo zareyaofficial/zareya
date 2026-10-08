@@ -3,6 +3,7 @@ import { sanityClient } from "./sanity";
 export type Product = {
   id: string;
   name: string;
+  itemCode?: string;
   slug: string;
   price: number;
   fabric: string;
@@ -17,6 +18,7 @@ export type Product = {
 type ProductDoc = {
   _id: string;
   name: string;
+  itemCode?: string;
   slug: string | { current?: string };
   price: number;
   fabric?: string;
@@ -36,6 +38,7 @@ type ProductDoc = {
 const PROJECTION = `{
   _id,
   name,
+  itemCode,
   "slug": coalesce(slug.current, slug),
   price,
   "fabric": coalesce(customFabric, fabricRef->name, fabric),
@@ -52,6 +55,7 @@ function toProduct(doc: ProductDoc): Product {
   return {
     id: doc._id,
     name: doc.name,
+    itemCode: doc.itemCode || "",
     slug: typeof doc.slug === "string" ? doc.slug : doc.slug?.current || "",
     price: doc.price || 0,
     fabric: doc.customFabric || doc.fabricRef || doc.fabric || "",
