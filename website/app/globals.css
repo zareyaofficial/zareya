@@ -97,11 +97,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;}
 }
 .card:hover .card-add{opacity:1;transform:translateY(0);}
 .card-add:hover{background:var(--gold);color:var(--white);}
-.card-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-top:16px;flex:1;}
-.card-meta>div:first-child{flex:1;min-width:0;}
-.card-name{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;overflow-wrap:anywhere;}
-.product-code{font-size:13px;color:var(--ink-soft);letter-spacing:.04em;margin-bottom:6px;}
-.card-sub-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.card-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;}
+.card-name{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;}
+.card-sub-row{display:flex;align-items:center;gap:8px;margin-top:4px;}
 .card-sub{font-size:12.5px;color:var(--ink-soft);}
 .card-price{font-size:15px;color:var(--gold-deep);white-space:nowrap;margin-left:0;flex-shrink:0;}
 
