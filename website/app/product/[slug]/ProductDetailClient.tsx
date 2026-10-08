@@ -17,7 +17,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
   function handleAdd() {
     if (soldOut) return;
-    addToCart({ id: product.id, name: product.name, price: product.price, size, qty, image: activeImage });
+    addToCart({ id: product.id, name: product.name, itemCode: product.itemCode, price: product.price, size, qty, image: activeImage });
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   }
@@ -44,6 +44,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         <div>
           {product.badge && <span className="badge">{product.badge}</span>}
           <h1 className="product-title">{product.name}</h1>
+          {product.itemCode && <div className="product-code">{product.itemCode}</div>}
           <p className="product-fabric">{product.fabric}</p>
           <div className="product-price">₹{product.price.toLocaleString("en-IN")}</div>
           {soldOut && <div className="sold-out-detail">Sold Out</div>}
